@@ -24,6 +24,7 @@ def handler(data, context):
     if data['method'] == 'company':
         return get_company(data['company_id'])
     elif data['method'] == 'companies':
-        return get_companies(data['q'], data['postcode'])
+        companies = get_companies(data['q'], data['postcode'])
+        return {'companies': companies}
     else:
         raise Exception('Invalid method: {0}'.format(data['method']))

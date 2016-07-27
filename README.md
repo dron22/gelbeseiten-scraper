@@ -77,12 +77,14 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
 
         $ curl -XGET {{url}}/companies?q=Rocket%20Internet&postcode=10111    
         
-        [
-            {
-                "id": "1056434575",
-                "companyName": "Rocket Internet GmbH Internetservice"
-            }
-        ]
+        {
+            "companies": [
+                {
+                    "id": "1056434575",
+                    "companyName": "Rocket Internet GmbH Internetservice"
+                }
+            ]
+        }
 
 * GET /companies/{company_id}
 
@@ -109,6 +111,7 @@ Provided by AWS API Gateway.
 * **DB:** Persist data in DB instead of caching.
 * **Company data:** Crawl data from companies own website.
 * **Third party Services:** Use 3rd party api services to extend company info, e.g. solvency/credit history
+* **Authentication** Use a second AWS Lambda function as authentication service
 
 
 ## Limitations
