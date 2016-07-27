@@ -41,10 +41,11 @@ def _build_tree(html):
 
 def _get_property(name, obj, selectors):
     xpath = selectors[name]['xpath']
-    value = obj.xpath(xpath)[0]
-    if 'regex' in selectors[name]:
+    value = obj.xpath(xpath)[0] if len(obj.xpath(xpath)) else None
+    if value and 'regex' in selectors[name]:
         rgx = selectors[name]['regex']
-        value = rgx.findall(value)[0]
+        values = rgx.findall(value)
+        value = values[0] if len(values) else None
     return value
 
 
@@ -64,7 +65,9 @@ def parse_companies(html):
     for n, i in enumerate(companyObjs):
         company = {}
         for name in selectors_search.keys():
-            company[name] = _get_property_search(name, i)
+            prop = _get_property_search(name, i)
+            if prop:
+                company[name] = prop
         companies.append(company)
     return companies
 
@@ -75,5 +78,7 @@ def parse_company(html):
     obj = tree.xpath(xpath)[0]
     company = {}
     for name in selectors_company.keys():
-        company[name] = _get_property_company(name, obj)
+        prop = _get_property_company(name, obj)
+        if prop:
+            company[name] = prop
     return company
