@@ -1,5 +1,5 @@
 
-# gelbeseiten.de scraper
+# gelbeseiten.de Scraper
 
 A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). Deployment with [kappa](https://github.com/garnaat/kappa).
 
@@ -13,7 +13,7 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
 
         $ pip install kappa
 
-* Configure <profile> and <region> in kappa.yml
+* Configure `<profile>` and `<region>` in kappa.yml
 
         $ cp kappa.yml.sample kappa.yml
         $ vim kappa.yml
