@@ -1,13 +1,7 @@
+# -*- coding: utf-8 -*-
 
-import scraper
 import downloader
-
-
-def get_company(company_id):
-    url = 'http://www.gelbeseiten.de/{0}'.format(company_id)
-    html = downloader.fetch(url)
-    company = scraper.get_company(html)
-    return company
+import scraper
 
 
 def get_companies(query, postcode):
@@ -17,4 +11,19 @@ def get_companies(query, postcode):
         'location': postcode,
     }
     html = downloader.fetch(url, params)
-    return scraper.get_companies(html)
+    return scraper.parse_companies(html)
+
+
+def get_company(company_id):
+    url = 'http://www.gelbeseiten.de/{0}'.format(company_id)
+    html = downloader.fetch(url)
+    return scraper.parse_company(html)
+
+
+def handler(data, context):
+    if data['method'] == 'company':
+        return get_company(data['company_id'])
+    elif data['method'] == 'companies':
+        return get_companies(data['q'], data['postcode'])
+    else:
+        raise Exception('Invalid method: {0}'.format(data['method']))
