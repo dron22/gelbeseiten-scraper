@@ -1,6 +1,8 @@
 
 # gelbeseiten.de scraper
 
+A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). Deployment with [kappa](https://github.com/garnaat/kappa).
+
 
 ## Quickstart
 
@@ -16,7 +18,7 @@
         $ cp kappa.yml.sample kappa.yml
         $ vim kappa.yml
 
-* Deploy to AWS Lambda
+* Deploy to AWS Lambda (assumes awscli is [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html))
 
         $ kappa deploy
 
@@ -94,4 +96,23 @@
             "streetAddress": "Saarbrücker Str. 20/21",
             "postcode": "10405"
         }
+
+
+## Caching
+
+Provided by AWS API Gateway.
+
+
+## Possible improvements
+
+* **Proxy:** Use proxy service to use changing IPs (Crawlera etc.)
+* **DB:** Persist data in DB instead of caching.
+* **Company data:** Crawl data from companies own website.
+* **Third party Services:** Use 3rd party api services to extend company info, e.g. solvency/credit history
+
+
+## Limitations
+
+* **Pagination:** on gelbeseiten.de search is not yet handled
+* **Blocking:** A high number of requests might cause blocking by gelbeseiten.de. Varying user agents of popular browsers are used, but the originating IP is not concealed.
 
