@@ -1,0 +1,28 @@
+---
+name: gelbeseiten
+environments:
+  dev:
+    profile: <profile>
+    region: <region>
+    policy:
+      statements:
+        - Effect: Allow
+          Resource: "*"
+          Action:
+            - "logs:*"
+  prod:
+    profile: <profile>
+    region: <region>
+    policy:
+      statements:
+        - Effect: Allow
+          Resource: "*"
+          Action:
+            - "logs:*"
+lambda:
+  description: gelbeseiten.de scraper
+  handler: service.handler
+  runtime: python2.7
+  memory_size: 128
+  timeout: 3
+
