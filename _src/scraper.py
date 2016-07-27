@@ -56,7 +56,7 @@ def _get_property_company(name, obj):
     return _get_property(name, obj, selectors_company)
 
 
-def get_companies(html):
+def parse_companies(html):
     tree = _build_tree(html)
     xpath = '//*[@itemtype="http://schema.org/LocalBusiness"]'
     companyObjs = tree.xpath(xpath)
@@ -69,7 +69,7 @@ def get_companies(html):
     return companies
 
 
-def get_company(html):
+def parse_company(html):
     tree = _build_tree(html)
     xpath = '//*[@itemtype="http://schema.org/LocalBusiness"]'
     obj = tree.xpath(xpath)[0]
