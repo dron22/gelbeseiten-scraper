@@ -1,5 +1,7 @@
 .*
 !.gitignore
 *.pyc
+*.zip
 __pycache__
+kappa.yml
 
