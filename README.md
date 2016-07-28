@@ -1,6 +1,8 @@
 
 # gelbeseiten.de Scraper
 
+![build status](https://travis-ci.org/dron22/gelbeseiten-scraper.svg?branch=master)
+
 A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). Deployment with [kappa](https://github.com/garnaat/kappa). Done as a code exercise as part of a job application.
 
 
