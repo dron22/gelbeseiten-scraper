@@ -110,6 +110,11 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
 Provided by [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
 
 
+## Run tests
+
+        $ kappa test
+
+
 ## Why AWS Lambda & AWS API Gateway
 
 * With serverless architecure you just pay for what you use
