@@ -1,7 +1,7 @@
 
 # gelbeseiten.de Scraper
 
-A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). Deployment with [kappa](https://github.com/garnaat/kappa).
+A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). Deployment with [kappa](https://github.com/garnaat/kappa). Done as a code exercise as part of a job application.
 
 
 ## Quickstart
@@ -70,6 +70,11 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
         }
 
 
+##### Deploy API
+
+        APIs > gelbeseiten > Resources > Actions > Deploy API
+
+
 ## API Endpoints
 
 
@@ -102,20 +107,31 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
 
 ## Caching
 
-Provided by AWS API Gateway.
+Provided by [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+
+
+## Why AWS Lambda & AWS API Gateway
+
+* With serverless architecure you just pay for what you use
+* Serverless architecture scales
+* Caching included
 
 
 ## Possible improvements
 
-* **Proxy:** Use proxy service to use changing IPs (Crawlera etc.)
-* **DB:** Persist data in DB instead of caching.
+* **Authentication:** Use a second AWS Lambda function as authentication service
 * **Company data:** Crawl data from companies own website.
+* **DB:** Persist data in DB instead of caching.
+* **Deployment:** Automate API Gateway api creation.
+* **Documentation:** Export API Gateway api description in swagger format.
+* **Proxy:** Use proxy service to use changing IPs (Crawlera etc.)
+* **Tests:** Add automated testing e.g. travis-ci
 * **Third party Services:** Use 3rd party api services to extend company info, e.g. solvency/credit history
-* **Authentication** Use a second AWS Lambda function as authentication service
 
 
 ## Limitations
 
-* **Pagination:** on gelbeseiten.de search is not yet handled
+* **AWS Lambda:** If this service is expanded, AWS Lambda could be a drawback. While it is a perfect usecase for small, independent, modular solutions, it can be complicated and hard to debug for a bigger architecture.
 * **Blocking:** A high number of requests might cause blocking by gelbeseiten.de. Varying user agents of popular browsers are used, but the originating IP is not concealed.
+* **Pagination:** on gelbeseiten.de search is not yet handled
 
