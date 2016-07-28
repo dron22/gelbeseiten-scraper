@@ -1,0 +1,14 @@
+language: python
+sudo: required
+dist: trusty
+python:
+    - "3.4"
+script: PYTHONPATH=$TRAVIS_BUILD_DIR/_src py.test _tests/unit/
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get install -y libxslt-dev
+  - sudo apt-get install -y libxslt1-dev
+  - sudo apt-get install -y zlib1g-dev
+  - rm -r $TRAVIS_BUILD_DIR/_src/requests*
+  - rm -r $TRAVIS_BUILD_DIR/_src/lxml*

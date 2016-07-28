@@ -25,4 +25,5 @@ lambda:
   runtime: python2.7
   memory_size: 128
   timeout: 3
+unit_test_runner: py.test . ../_tests/unit
 
