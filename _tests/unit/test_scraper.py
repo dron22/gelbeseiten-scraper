@@ -29,9 +29,12 @@ def company_html():
 
 def test_parse_companies(companies_html):
     import scraper
+
     expected = [
         {'companyName': 'company_1', 'id': '12345'},
         {'companyName': 'company_2', 'id': '67890'},
     ]
     r = scraper.parse_companies(companies_html)
-    assert sorted(r) == sorted(expected)
+
+    getKey = lambda x: sorted(x.keys())[0]
+    assert sorted(r, key=getKey) == sorted(expected, key=getKey)
