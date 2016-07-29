@@ -52,9 +52,6 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
     $ python ./create_api.py -r 'eu-central-1' [-a <API_NAME>]
 
 
-### Create API Gateway api
-
-
 ## API Endpoints
 
 
@@ -87,7 +84,7 @@ A scraper API to gelbeseiten.de using [AWS API Gateway](https://docs.aws.amazon.
 
 ## Caching
 
-Provided by [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+Provided by [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html). Default cache size: 0.5GB, default ttl: 3600.
 
 
 ## Run tests
